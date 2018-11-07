@@ -2,8 +2,6 @@ import React from 'react';
 
 const EditTodos = props => (
     <div>
-        <div className="container">
-        <div className="col-md-6">
         <div className="panel panel-default">
         <div className="panel-heading">Edit Todo Item</div>
      
@@ -13,7 +11,7 @@ const EditTodos = props => (
          onChange={props.onTextChange}>
         </textarea>
 
-        <label>How much of a priority is this?</label>
+        <label className="label-move">How much of a priority is this?</label>
         <input className="update-todo-priority" list="priority" onChange={props.changePriority} />
         <datalist id="priority">
           <option value="1">Low</option>
@@ -31,9 +29,6 @@ const EditTodos = props => (
         }
                 
         </ul>
-
-      </div>
-      </div>
       </div>
 
     </div>

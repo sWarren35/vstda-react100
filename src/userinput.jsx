@@ -5,9 +5,7 @@ const Userinput = props => {
   return(
     
   <div>
-      <div className="container">
       <div className="front">
-      <div className="col-md-6">
       <div className="panel panel-default">
       <div className="panel-heading">Add Todo Item</div>
   
@@ -18,17 +16,15 @@ const Userinput = props => {
           onChange={props.onChange}>
         </textarea>
         
-        <button className="create-todo" onClick={props.onSubmit}>Add To-Do</button>
+        <button className="create-todo move-btn" onClick={props.onSubmit}>Add To-Do</button>
         
-        <label>How much of a priority is this?</label>
-        <select className="create-todo-priority" onChange={props.changePriority}>
+        <label className="label-move">How much of a priority is this?</label>
+        <select className="create-todo-priority move-dropdown" onChange={props.changePriority}>
           <option value="1">Low</option>
           <option value="2">Medium</option>
           <option value="3">High</option>
         </select>
     
-      </div>
-      </div>
       </div>
       </div>
   </div>

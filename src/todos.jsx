@@ -1,8 +1,6 @@
 import React from 'react';
 
 const TodosList = props => (
-  <div className="container ">
-  <div className="col-md-6">
   <div className="panel panel-default">
   <div className="panel-heading">Your Current Todos</div>
     <ul className = "list-group">
@@ -14,8 +12,6 @@ const TodosList = props => (
         })
       }
     </ul>
-  </div>
-  </div>
   </div>
 );
 

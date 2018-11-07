@@ -97,7 +97,9 @@ class App extends Component {
   
 render() {
     return(
-       <div>
+       <div className="container">
+       <div className="col-md-6">
+
           
        <Userinput 
        value={this.state.text} 
@@ -105,7 +107,8 @@ render() {
        onSubmit={this.handleSubmit}
        changePriority={this.handlePriorityChange}
        />
-       
+       </div>
+       <div className="col-md-6">
        {!this.state.isEdit &&
        <TodosList
        todosArray={this.state.todos}
@@ -127,7 +130,7 @@ render() {
       onDone={this.handleCompletedTodo}
       /> 
       }
-     
+      </div>
       </div>
       );
     }
