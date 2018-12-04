@@ -13,7 +13,7 @@ class App extends Component {
       editId: '',
       priority: 1,
       isEdit: false,
-      todos:[]
+      todos: []
     };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -98,9 +98,10 @@ class App extends Component {
 render() {
     return(
        <div className="container">
-       <div className="col-md-6">
-
-          
+       <h1 className="text-white">Very Simple Todo App</h1>
+       <hr className="table-light"/>
+       <div className="row">
+       <div className="col-md-4">
        <Userinput 
        value={this.state.text} 
        onChange={this.handleTextChange} 
@@ -108,16 +109,19 @@ render() {
        changePriority={this.handlePriorityChange}
        />
        </div>
-       <div className="col-md-6">
+       <div className="col-md-8">
        {!this.state.isEdit &&
        <TodosList
        todosArray={this.state.todos}
        onDone={this.handleCompletedTodo}
        onEdit={this.handleEdit}
        onDelete={this.handleDelete}
+       id={this.state.id}
        />
       }
-      
+      </div>
+      <div className="col-md-8
+      ">
       {this.state.isEdit &&
       <EditTodos
       todosArray={this.state.todos}
@@ -130,6 +134,7 @@ render() {
       onDone={this.handleCompletedTodo}
       /> 
       }
+      </div>
       </div>
       </div>
       );
