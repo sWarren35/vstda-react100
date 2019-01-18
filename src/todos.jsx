@@ -17,5 +17,3 @@ const TodosList = props => (
  )
  
 export default TodosList;
-
-       
