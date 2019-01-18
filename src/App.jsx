@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Userinput from "./userinput";
-import TodosList from "./todos";
-import EditTodos from "./edit-todos";
+import Userinput from "./Userinput";
+import TodosList from "./Todos";
+import EditTodos from "./Edit-todos";
 
 class App extends Component {
   constructor(props) {
@@ -44,9 +44,9 @@ class App extends Component {
       isEdit: false,
       editId: '',
       completed: false,
-      todos: [...this.state.todos, {id:this.state.id, text:this.state.text, isEdit: this.state.isEdit, priority: this.state.priority, completed: false}]
+      todos: [...this.state.todos, {id:this.state.id, text:this.state.text, 
+      isEdit: this.state.isEdit, priority: this.state.priority, completed: false}]
     });
-    console.log(this.state.todos)
     event.preventDefault();
   }
 
@@ -93,53 +93,50 @@ class App extends Component {
       this.setState({todos: [...this.state.todos]});
   }
   
-    
-  
-render() {
+  render() {
     return(
-       <div className="container">
-       <h1 className="text-white">Very Simple Todo App</h1>
-       <hr className="table-light"/>
-       <div className="row">
-       <div className="col-md-4">
-       <Userinput 
-       value={this.state.text} 
-       onChange={this.handleTextChange} 
-       onSubmit={this.handleSubmit}
-       changePriority={this.handlePriorityChange}
-       />
-       </div>
-       <div className="col-md-8">
-       {!this.state.isEdit &&
-       <TodosList
-       todosArray={this.state.todos}
-       onDone={this.handleCompletedTodo}
-       onEdit={this.handleEdit}
-       onDelete={this.handleDelete}
-       id={this.state.id}
-       />
-      }
+      <div className="container">
+        <h1 className="text-white">Very Simple Todo App</h1>
+        <hr className="table-light"/>
+        <div className="row">
+          <div className="col-md-4">
+            <Userinput 
+            value={this.state.text} 
+            onChange={this.handleTextChange} 
+            onSubmit={this.handleSubmit}
+            changePriority={this.handlePriorityChange}
+            />
+          </div>
+          <div className="col-md-8">
+            {!this.state.isEdit &&
+            <TodosList
+            todosArray={this.state.todos}
+            onDone={this.handleCompletedTodo}
+            onEdit={this.handleEdit}
+            onDelete={this.handleDelete}
+            id={this.state.id}
+            />
+            }
+          </div>
+          <div className="col-md-8
+            ">
+            {this.state.isEdit &&
+            <EditTodos
+            todosArray={this.state.todos}
+            value={this.state.editText} 
+            onEdit={this.handleEdit}
+            onDelete={this.handleDelete}
+            onSave={this.handleSave}
+            onTextChange={this.handleEditChange} 
+            changePriority={this.handlePriorityChange}
+            onDone={this.handleCompletedTodo}
+            /> 
+            }
+          </div>
+        </div>
       </div>
-      <div className="col-md-8
-      ">
-      {this.state.isEdit &&
-      <EditTodos
-      todosArray={this.state.todos}
-      value={this.state.editText} 
-      onEdit={this.handleEdit}
-      onDelete={this.handleDelete}
-      onSave={this.handleSave}
-      onTextChange={this.handleEditChange} 
-      changePriority={this.handlePriorityChange}
-      onDone={this.handleCompletedTodo}
-      /> 
-      }
-      </div>
-      </div>
-      </div>
-      );
-    }
+    );
   }
-
+}
   
 export default App;

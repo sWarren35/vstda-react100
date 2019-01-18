@@ -23,12 +23,6 @@ describe('Very Simple To Do App', function main() {
 
   beforeEach(() => {
     nightmare = new Nightmare();
-    // nightmare = new Nightmare({
-    //   openDevTools: {
-    //     mode: 'detach'
-    //   },
-    //   show: true
-    // });
   });
 
   it('should load successfully', () => axios.get(url).then(r => expect(r.status === 200)));
