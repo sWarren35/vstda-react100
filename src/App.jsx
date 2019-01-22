@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Userinput from "./Userinput";
-import TodosList from "./Todos";
-import EditTodos from "./Edit-todos";
+import AddTodo from "./components/AddTodo";
+import TodosList from "./components/TodosList";
+import EditTodos from "./components/EditTodos";
 
 class App extends Component {
   constructor(props) {
@@ -25,14 +25,12 @@ class App extends Component {
     this.handleEditChange=this.handleEditChange.bind(this);
   }
 
- handleTextChange(e)  {   
-    this.setState
-    ({text:e.target.value})
+  handleTextChange(e)  {   
+    this.setState({text:e.target.value})
   }
-  
+    
   handlePriorityChange(e) {
-    this.setState
-    ({priority: parseInt(e.target.value)})
+    this.setState({priority: parseInt(e.target.value)})
   }
 
   handleSubmit(event) {
@@ -44,8 +42,9 @@ class App extends Component {
       isEdit: false,
       editId: '',
       completed: false,
-      todos: [...this.state.todos, {id:this.state.id, text:this.state.text, 
-      isEdit: this.state.isEdit, priority: this.state.priority, completed: false}]
+      todos: [...this.state.todos, {id:this.state.id, 
+        text:this.state.text, isEdit: this.state.isEdit, 
+        priority: this.state.priority, completed: false}]
     });
     event.preventDefault();
   }
@@ -61,8 +60,7 @@ class App extends Component {
   }
 
   handleEditChange(e) {
-    this.setState
-    ({editText:e.target.value})
+    this.setState({editText:e.target.value})
   }
  
   handleEdit(todo) {
@@ -100,7 +98,7 @@ class App extends Component {
         <hr className="table-light"/>
         <div className="row">
           <div className="col-md-4">
-            <Userinput 
+            <AddTodo 
             value={this.state.text} 
             onChange={this.handleTextChange} 
             onSubmit={this.handleSubmit}
@@ -118,8 +116,7 @@ class App extends Component {
             />
             }
           </div>
-          <div className="col-md-8
-            ">
+          <div className="col-md-8">
             {this.state.isEdit &&
             <EditTodos
             todosArray={this.state.todos}

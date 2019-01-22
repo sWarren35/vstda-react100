@@ -1,6 +1,6 @@
 import React from "react";
 
-const Userinput = props => {
+const AddTodo = props => {
   return(
     <div className="panel panel-default">
       <div className="panel-heading">Add New Todo</div>
@@ -26,4 +26,4 @@ const Userinput = props => {
   )  
 }
 
-export default Userinput;
+export default AddTodo;

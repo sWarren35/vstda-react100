@@ -38,23 +38,6 @@ describe('Very Simple To Do App', function main() {
       })
   );
 
-  it('should add todo item with priority', () =>
-    nightmare
-      .goto(url)
-      .select('select.create-todo-priority', '1')
-      .type('textarea.create-todo-text', 'ITEM')
-      .click('button.create-todo')
-      .wait(500)
-      .evaluate(() => {
-        const { innerText, className } = document.querySelectorAll('li')[0];
-        return { innerText, className };
-      })
-      .then(({ innerText, className }) => {
-        expect(innerText).to.contain('ITEM');
-        expect(className).to.contain('success');
-      })
-  );
-
   it('should show todo item with edit and delete', () =>
     nightmare
       .goto(url)
